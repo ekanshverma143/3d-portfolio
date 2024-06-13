@@ -14,7 +14,7 @@ import {a} from '@react-spring/three'
 import islandScene from "../assets/3d/island.glb"
 
 
-const Island= ({isRotating,setIsRotating, ...props})=> {
+const Island= ({isRotating,setIsRotating,setCurrentStage, ...props})=> {
   const islandRef = useRef();
 const {gl,viewport}= useThree();
 
@@ -72,6 +72,7 @@ useFrame(()=>{
       rotationSpeed.current=0;
 
     }
+    islandRef.current.rotation.y += rotationSpeed.current;
   } else{
     const rotation = islandRef.current.rotation.y;
 
