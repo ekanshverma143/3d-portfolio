@@ -21,4 +21,4 @@ This repository contains the code for my 3D portfolio website, showcasing my wor
 
 1. Clone the repository:
    ```bash
-   git clone https://github.com/your-username/3d-portfolio.git
+   git clone https://github.com/ekanshverma143/3d-portfolio.git
