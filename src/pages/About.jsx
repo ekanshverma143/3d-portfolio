@@ -2,8 +2,9 @@ import { VerticalTimeline, VerticalTimelineElement }  from 'react-vertical-timel
 import 'react-vertical-timeline-component/style.min.css';
 
 import React from 'react'
-import { skills,experiences} from '../constants'
+import { skills,experiences, socialLinks} from '../constants'
 import CTA from '../components/CTA';
+import { Link } from 'react-router-dom';
 
 const About = () => {
   return (
@@ -18,7 +19,7 @@ const About = () => {
       <div className="py-10 flex flex-col ">
         <h3 className="subhead-text ">My Skills </h3>
 
-        <div className="mt-16 flex flex-wrap gap-12">
+        <div className="mt-16 flex flex-wrap gap-12" >
           {skills.map((skill)=>(
            <div className="block-container w-20 h-20">
             <div className='btn-back rounded-x1'/>
@@ -84,6 +85,21 @@ const About = () => {
                 ))}
               </VerticalTimeline>
             </div>
+        </div>
+         <hr className="border-slate-200"/>
+         <div className="flex justify-center items-center w-full h-full">
+           <h3 className='subhead-text'>My <span className="blue-gradient_text font-semibold drop-shadow">Social</span> Links</h3>
+          {socialLinks.map((socialLink)=>(
+                      <Link to={socialLink.link}>
+                         <button>
+                             <img src={socialLink.iconUrl}
+                                  alt={socialLink.name} 
+                                  link={socialLink.link}
+                                  className="w-10 h-10 m-5 object-contain"/>
+                         </button>
+                        </Link>  
+            ))}
+
         </div>
         <hr className="border-slate-200"/>
         <CTA/>
