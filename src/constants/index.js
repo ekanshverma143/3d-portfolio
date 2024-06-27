@@ -1,4 +1,4 @@
-import { meta, shopify, starbucks, tesla } from "../assets/images";
+import { meta, shopify, starbucks, tesla,ojas,dovetail,iste,gdsc,netflix} from "../assets/images";
 import {
     car,
     contact,
@@ -101,53 +101,53 @@ export const experiences = [
     {
         title: "Web Developer & Graphic Designer",
         company_name: "Dovetail Solutions",
-        icon: starbucks,
+        icon: dovetail,
         iconBg: "#accbe1",
         date: "January 2024 - April 2024",
         points: [
-            "Developing and maintaining web applications using React.js and other related technologies.",
-            "Collaborating with cross-functional teams including designers, product managers, and other developers to create high-quality products.",
-            "Implementing responsive design and ensuring cross-browser compatibility.",
+            "Collaborating with the development team to design, develop, and implement new features and improvements to the platform.",
+            
+            "Designed social media posts for different social media handles as a designer to the firm.",
+            "Built new strategies to increase engagement with relevant customers to the company.",
             "Participating in code reviews and providing constructive feedback to other developers.",
         ],
     },
     {
-        title: "React Native Developer",
+        title: "Media & Marketing Head ",
         company_name: "Indian Society for Technical Education",
-        icon: tesla,
-        iconBg: "#fbc3bc",
+        icon: iste,
+        iconBg: "#accbe1",
         date: "Jan 2021 - Feb 2022",
         points: [
-            "Developing and maintaining web applications using React.js and other related technologies.",
-            "Collaborating with cross-functional teams including designers, product managers, and other developers to create high-quality products.",
-            "Implementing responsive design and ensuring cross-browser compatibility.",
-            "Participating in code reviews and providing constructive feedback to other developers.",
+            "Contributed in website building and creating new features in website for society as part of technicalteam.",
+            "Successfully orchestrated high-profile events such as the esteemed International Hult Prize an Prodyogiki with 1000+ participation.",
+            "Ensure designs of posters,flyers and other elements during any event of society",
+            "Expanded the society's outreach significantly during my tenure as Marketing Head at college.",
+        ],
+    },
+    {
+        title: "Core Team (UI/UX)",
+        company_name: "Google Developers Student Clubs",
+        icon: gdsc,
+        iconBg: "#b7e4c7",
+        date: "Jan 2022 - Jan 2023",
+        points: [
+            "Organized  workshops to teach UI/UX Case Study for students in college",
+            "Managed team  during events and technical fest organised in college.",
+            " Designed UI of multiple  websites as a project from the club to represent in various events.",
+            "Participating in Hackathon, MeetUps and events organised by GDSC in different states.",
         ],
     },
     {
         title: "Web Developer",
-        company_name: "Google Developers Student Clubs",
-        icon: shopify,
-        iconBg: "#b7e4c7",
-        date: "Jan 2022 - Jan 2023",
-        points: [
-            "Developing and maintaining web applications using React.js and other related technologies.",
-            "Collaborating with cross-functional teams including designers, product managers, and other developers to create high-quality products.",
-            "Implementing responsive design and ensuring cross-browser compatibility.",
-            "Participating in code reviews and providing constructive feedback to other developers.",
-        ],
-    },
-    {
-        title: "Full stack Developer",
         company_name: "Team Ojas NITH",
-        icon: meta,
-        iconBg: "#a2d2ff",
+        icon: ojas,
+        iconBg: "#FFC78F",
         date: "Jan 2023 - Present",
         points: [
-            "Developing and maintaining web applications using React.js and other related technologies.",
-            "Collaborating with cross-functional teams including designers, product managers, and other developers to create high-quality products.",
+            "Developing and maintaining websites for the club using React.js and other related technologies.",
+            "Collaborating with cross-functional teams including designers,club coordinators, and other developers to create high-quality products.",
             "Implementing responsive design and ensuring cross-browser compatibility.",
-            "Participating in code reviews and providing constructive feedback to other developers.",
         ],
     },
 ];
@@ -177,10 +177,10 @@ export const projects = [
         name: 'Edu-Bot',
         description: ' EduBOT is a Python-based web-app that utilizes Natural Language Processing (NLP) and machine  learning techniques to provide accurate and relevant responses to the school and college level students.',
        
-        link: 'https://github.com/adrianhajdin/pricewise',
+        link: 'https://github.com/swastkk/eduBOT',
     },
     {
-        iconUrl: threads,
+        iconUrl: netflix,
         theme: 'btn-back-red',
         name: 'Netflix Clone (Notflix)',
         description: 'Created a front end replica of the popular platform "Netflix," enabling users to post and engage in threaded conversations.',
@@ -191,7 +191,7 @@ export const projects = [
         theme: 'btn-back-blue',
         name: 'Car Finding App',
         description: 'Designed and built a mobile app for finding and comparing cars on the market, streamlining the car-buying process.',
-        link: 'https://github.com/adrianhajdin/project_next13_car_showcase',
+        link: '/',
     },
    
     {
@@ -199,13 +199,13 @@ export const projects = [
         theme: 'btn-back-black',
         name: 'Real-Estate Application',
         description: 'Developed a web application for real estate listings, facilitating property searches and connecting buyers with sellers.',
-        link: 'https://github.com/adrianhajdin/projects_realestate',
+        link: '/',
     },
     {
         iconUrl: pricewise,
         theme: 'btn-back-pink',
         name: 'Amazon Price Tracker',
         description: 'Developed a web application that tracks and notifies users of price changes for products on Amazon, helping users find the best deals.',
-        link: 'https://github.com/adrianhajdin/project_ai_summarizer',
+        link: '/',
     }
 ];
