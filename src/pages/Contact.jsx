@@ -49,7 +49,7 @@ const Contact = () => {
           });
 
           setTimeout(() => {
-            hideAlert(false);
+            hideAlert();
             setCurrentAnimation("idle");
             setForm({
               name: "",
