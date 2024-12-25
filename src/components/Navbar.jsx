@@ -15,6 +15,11 @@ const Navbar = () => {
         <NavLink to="/projects" className={({isActive}) => isActive ? 'text-blue-500' : 'text-black' }>
             Projects
         </NavLink>
+        <NavLink to="#"
+        onClick={() => window.open('/resume.pdf', '_blank', 'noopener,noreferrer')}
+        className={({ isActive }) =>isActive ? 'text-red-500' : 'text-black'}>
+        My Resume
+      </NavLink>
         </nav>
     </header>
   )
