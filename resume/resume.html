@@ -65,7 +65,8 @@
     <div><b>Backend :</b> Node.js, Express, REST APIs, BullMQ, Kafka, Webhooks, Server-Sent Events, WebRTC, FastAPI</div>
     <div><b>Databases &amp; Search :</b> MySQL, MongoDB, PostgreSQL, Redis, OpenSearch (vector + full-text)</div>
     <div><b>AI Systems :</b> Claude Managed Agents, tool calling, MCP, prompt caching, evals, embeddings and rerank (Voyage), realtime speech (Nova Sonic)</div>
-    <div><b>Cloud &amp; Tools :</b> AWS (Bedrock, SES, ECR), GCP (GCS), Vercel, Docker, GitHub Actions, Git</div>
+    <div><b>Integrations :</b> Razorpay, Meta WhatsApp Cloud API, Chatwoot, Resend, AWS SES, Gmail API, Google Meet, Slack</div>
+    <div><b>Cloud &amp; Tools :</b> AWS (Bedrock, SES, S3, ECR, Transcribe), GCP (GCS), Vercel, Docker, GitHub Actions, Git</div>
   </div>
 
   <h2>Work Experience</h2>
@@ -73,14 +74,15 @@
     <div class="row"><span class="title">GoodSpace AI | Software Development Engineer 1</span><span>Noida | January 2026 - Present</span></div>
     <ul>
       <li>Built the Mandate Assistant, an autonomous recruiting agent that runs a client mandate end to end (JD engineering, client questionnaire, sourcing, fit scoring, WhatsApp and voice screening, client email, offer and invoice) through 42 permission-scoped tools with an approval gate on every write, plus a headless driver that advances a mandate through seven pipeline stages without a human.</li>
+      <li>Built GoodSpace Autopilot from my own idea, which runs a job seeker's applications end to end across three services: a step-level run engine on queues, role supply from GoodSpace and external job boards, resume tailoring and cover letters, a Chrome extension that fills company application forms, and outreach from the member's own Gmail. Released to every member in October 2026.</li>
       <li>Extended the agent engine into three more Claude Managed Agents for leadership, sales and email operations (40 to 53 tools each), with a 12-question eval set run against live data, prompt caching, live spend from the Anthropic cost report, and a multi-org account pool that fails over automatically when one org runs out of credit.</li>
       <li>Rebuilt the AI video interview on Amazon Nova Sonic speech-to-speech over WebRTC (werift), replacing socket.io audio over TCP: paced RTP at 20 ms on a drift-corrected clock, rotated model streams at turn boundaries to outlive the 8-minute stream cap in 15-minute interviews, and fixed reconnect logic that let zombie sessions hold capacity for 16+ hours.</li>
       <li>Built GOODex, the company's recruiter-facing candidate search product, end to end: replaced regex matching with an OpenSearch semantic engine over Voyage embeddings, and shipped it as a metered external API.</li>
       <li>Built LLM lead qualification in which the model returns sourced company facts and code computes a 10-point ICP score (BullMQ queue with a daily research budget), plus an MQL gate and a router that assigns qualified leads to in-office reps every 10 minutes with accept-or-reassign across up to 3 reps.</li>
-      <li>Built the multi-channel AI outreach pipeline (voice calls, agent-sent emails, WhatsApp screening bots) with per-mandate agent flows by stage, a reply loop routing Gmail webhooks through BullMQ workers into LLM analysis, and a cross-channel contact check; migrated WhatsApp to Meta's Cloud API with signed webhooks into a Kafka consumer.</li>
+      <li>Built the multi-channel AI outreach pipeline (voice calls, agent-sent emails, WhatsApp screening bots) with per-mandate agent flows by stage, a reply loop routing Gmail webhooks through BullMQ workers into LLM analysis, and a cross-channel contact check; migrated WhatsApp to Meta's Cloud API with signed webhooks into a Kafka consumer and a self-hosted Chatwoot team inbox.</li>
       <li>Cut duplicate dashboard load with a Redis single-flight cache and per-request MySQL query budgets (MAX_EXECUTION_TIME set to the route deadline, no new queries once the client disconnects); before, half of dashboard requests ended in 499 and concurrent misses re-ran the same 15-20 s aggregation up to 9 times.</li>
-      <li>Extended the premium subscription system on Razorpay (GOLD with 1M, 3M and 6M terms, a 7-day trial, payment attribution) and diagnosed and fixed an outage that had broken 100% of paid renewals: a spread-copied DB connection lost mysql2's execute, and a payment claim made outside the transaction made every failure un-retryable.</li>
-      <li>Also built background verification workflows, cross-platform QR login, a MongoDB oplog backfill for the admin audit trail and technical SEO for the public site; co-built the Goodness Score v2 assessment.</li>
+      <li>Built the revamped premium subscription system on Razorpay: migrated a legacy multi-plan catalog into a single GOLD product with 1M, 3M and 6M terms plus a 7-day free trial, implemented the subscription state machine (TRIALING activation, cancellation retaining entitlement until trial end), added payment-source attribution across web and app, and fixed an outage that had broken 100% of paid renewals (a spread-copied DB connection lost mysql2's execute, and a claim outside the transaction made failures un-retryable).</li>
+      <li>Also built background verification workflows, cross-platform QR login, email integrations on AWS SES and Resend, a MongoDB oplog backfill for the admin audit trail and technical SEO for the public site; co-built the Goodness Score v2 assessment.</li>
     </ul>
   </div>
   <div class="entry">
@@ -100,6 +102,14 @@
       <li>Kept facts in code, not in the model: a per-turn state snapshot from about 10 parallel queries (cached and hash-deduplicated), a signals engine that computes stage lag and unanswered client mail, and a shared per-mandate brief that carries research across sessions and users.</li>
       <li>Raised autonomy in steps: approval cards, then an autopilot that clears them for chosen mandates and wakes on client replies within 10 seconds, then a headless server-side driver that moves a mandate through all seven stages to invoice and collection, stopping only at sign-off gates with deadlines, under a cross-replica Redis lock.</li>
       <li>Hardened it for production: provider failover across three accounts, session budgets that rotate to a re-seeded session at 85%, a per-turn cost ledger, agent config as code with a dry-run diff in every PR, and an end-to-end driver that verifies the whole flow in about 3.6 minutes.</li>
+    </ul>
+  </div>
+  <div class="entry">
+    <div class="row"><span class="title">GoodSpace Autopilot - Job Application Engine <span class="muted">| GoodSpace AI</span></span></div>
+    <ul>
+      <li>Built the run engine as a step-level state machine: one queue job per step (track, ATS scan, find the hiring contact, tailor the resume, cover letter, draft, send), where a retry reopens dependent steps and voids their old approval, with a kill switch, typed outcomes and a sweeper that expires stale runs.</li>
+      <li>Made form filling a resolver, not a guess: a Chrome extension reads the form and the server answers each field in order of trust (profile, a self-learning answer bank, earlier answers matched by meaning with a second model as judge, then a draft written only from evidence), and reports coverage per ATS (Greenhouse, Lever, Ashby, Workable).</li>
+      <li>Kept the assistant on rails and closed the loop: tool declarations cut from about 2.8k to 1.3k tokens around a stable cached prefix, emails sent from the member's own Gmail (OAuth), replies returned through an HMAC-signed relay address on SES, and live per-user events over Redis and SSE.</li>
     </ul>
   </div>
   <div class="entry">

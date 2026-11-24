@@ -72,6 +72,51 @@ export const projects: Project[] = [
     },
   },
   {
+    slug: "goodspace-autopilot",
+    title: "GoodSpace Autopilot",
+    kind: "work",
+    org: "GoodSpace AI",
+    period: "2026",
+    featured: true,
+    summary:
+      "A job application engine that finds roles, tailors the resume, fills company application forms through a Chrome extension and follows up from the member's own Gmail.",
+    stack: ["Node.js", "BullMQ", "Redis", "Server-Sent Events", "Chrome Extension", "Gmail API", "AWS SES", "LLMs"],
+    metrics: [
+      { value: "3", label: "services in one run engine" },
+      { value: "4", label: "ATS platforms filled" },
+      { value: "2.8k to 1.3k", label: "tokens of tool declarations" },
+      { value: "Oct 2026", label: "released to every member" },
+    ],
+    caseStudy: {
+      role: "The idea was mine. I built the run engine, the form-filling resolver, the assistant and the delivery loop across three services, with Akshat as the designer.",
+      problem:
+        "Applying for jobs is the same work repeated: find a role, check it fits, find who is hiring, tailor the resume, write a cover letter, fill a long form, send, follow up. Members wanted all of it done for them. The hard part is doing it without guessing: a wrong answer on an application form or a careless email costs the member a real opportunity.",
+      approach: [
+        {
+          title: "A step-level state machine",
+          body: "Each application is a run made of steps: track, ATS scan, find the hiring contact, tailor the resume, write the cover letter, draft, send. Every step is its own queue job. Retrying a step reopens the steps that depend on it and voids their old approvals, so nothing is sent on stale work. A kill switch, typed outcomes and a sweeper that expires stale runs keep the system predictable.",
+        },
+        {
+          title: "Form filling as a resolver, not a guess",
+          body: "A Chrome extension reads the application form and the server answers each field in order of trust: the member's profile, a self-learning answer bank, earlier answers matched by meaning with a second model acting as judge, and only then a draft written strictly from evidence. Fields that must never be auto-filled are refused, and coverage is reported per ATS for Greenhouse, Lever, Ashby and Workable.",
+        },
+        {
+          title: "An assistant on rails",
+          body: "The model chooses which tool to call, but the server supplies the facts and matches the run. Common intents are handled with no model call at all. Tool declarations were cut from about 2.8k to 1.3k tokens around a stable cached prefix, and a second model takes over on any failure.",
+        },
+        {
+          title: "Closing the loop on delivery",
+          body: "Emails leave from the member's own Gmail over OAuth inside a morning send window. Replies come back through an HMAC-signed relay address on SES. Approvals also work as a WhatsApp reply, and polling was replaced with per-user live events over Redis and Server-Sent Events.",
+        },
+      ],
+      outcome: [
+        "Released to every member in October 2026.",
+        "Applications go out from the member's own identity, with every risky field either grounded in evidence or left for the member.",
+        "Lower model cost per turn from the cached prefix and the no-model fast paths.",
+      ],
+    },
+  },
+  {
     slug: "realtime-voice-interviewer",
     title: "Realtime voice interviewer",
     kind: "work",
@@ -164,6 +209,55 @@ export const projects: Project[] = [
     },
   },
   {
+    slug: "gold-premium-plans",
+    title: "Gold: premium plans on Razorpay",
+    kind: "work",
+    org: "GoodSpace AI",
+    period: "May to Jul 2026",
+    featured: true,
+    summary:
+      "Rebuilt GoodSpace's premium plans on Razorpay: a legacy multi-plan catalog collapsed into one Gold product with 1, 3 and 6 month terms, a 7-day free trial, payment attribution on every surface and a fix for a silent renewal outage.",
+    stack: ["Razorpay Subscriptions", "Webhooks", "Node.js", "MySQL", "Next.js", "Flutter"],
+    metrics: [
+      { value: "1", label: "Gold product replacing a catalog of legacy plans" },
+      { value: "3", label: "terms: 1, 3 and 6 months" },
+      { value: "7 days", label: "free trial with its own states" },
+      { value: "Web + app", label: "same plans and attribution on both" },
+    ],
+    caseStudy: {
+      role: "Led the Gold revamp across the backend, the web app and the mobile app: catalog migration, the trial, pricing, payment attribution and the renewal fix.",
+      problem:
+        "Premium had grown into a catalog of overlapping legacy plans. Members found it hard to choose, the team found it hard to change anything, and every new surface had to understand every old plan. Renewals ran on payment webhooks, and there was little visibility into where a paying member had come from.",
+      approach: [
+        {
+          title: "One product, three terms",
+          body: "The legacy catalog was migrated into a single Gold product with 1, 3 and 6 month terms. Legacy plans were retired from sale so new purchases only see Gold, while members already on an old plan keep what they paid for.",
+        },
+        {
+          title: "A trial is a state, not a flag",
+          body: "The 7-day free trial got its own place in the subscription state machine. Claiming it activates a TRIALING subscription, and cancelling during the trial keeps the member's entitlement until the trial ends instead of cutting them off on the spot.",
+        },
+        {
+          title: "Attribution on every payment surface",
+          body: "Every Razorpay checkout records where it came from, including the page, the surface and the device, across the web app and the Flutter app, so the team can see which surfaces actually convert.",
+        },
+        {
+          title: "Webhooks you can trust",
+          body: "Renewals were failing silently. The cause was a database connection copied with an object spread, which dropped mysql2's execute method, combined with a payment claim written outside the transaction, which made every failure impossible to retry. A one-line hotfix stopped it, then the claim moved inside the transaction so the provider's retry really retries.",
+        },
+        {
+          title: "The same patterns for API plans",
+          body: "GOODex's external API uses the same building blocks: organisation-scoped Razorpay subscriptions, free-tier quotas and idempotent credit accounting.",
+        },
+      ],
+      outcome: [
+        "Members choose between three terms of one product instead of a catalog of legacy plans.",
+        "Renewals that had been failing silently were restored, and a failed webhook can now be retried safely.",
+        "Every payment carries its source, on the web and in the app.",
+      ],
+    },
+  },
+  {
     slug: "lead-qualification",
     title: "LLM lead qualification and routing",
     kind: "work",
@@ -192,16 +286,6 @@ export const projects: Project[] = [
     summary:
       "Moved WhatsApp off a third-party provider onto Meta's Cloud API, with signed webhooks into a Kafka consumer, real per-message costs, template health and a self-hosted team inbox.",
     stack: ["Meta Cloud API", "Kafka", "Chatwoot", "Node.js"],
-  },
-  {
-    slug: "renewal-outage",
-    title: "The renewal outage",
-    kind: "work",
-    org: "GoodSpace AI",
-    period: "Jul 2026",
-    summary:
-      "Traced silently failing subscription renewals to a spread-copied database connection that lost its execute method, then moved the payment claim inside the transaction so retries really retry.",
-    stack: ["Razorpay", "Node.js", "mysql2", "Webhooks"],
   },
   {
     slug: "goodness-score",

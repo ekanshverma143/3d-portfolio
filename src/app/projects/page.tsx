@@ -6,7 +6,7 @@ import { projects } from "@/content/projects";
 export const metadata: Metadata = {
   title: "Work",
   description:
-    "Case studies and projects by Ekansh Verma: an autonomous recruiting agent, a realtime voice interviewer on WebRTC, semantic candidate search and a multi-tenant hiring platform.",
+    "Case studies and projects by Ekansh Verma: an autonomous recruiting agent, a job application engine, a realtime voice interviewer on WebRTC, semantic candidate search and premium plans on Razorpay.",
   alternates: { canonical: "/projects" },
 };
 

@@ -22,15 +22,17 @@ export const roles: Role[] = [
       "AI-first hiring platform. I build the agents, realtime voice, search and internal platforms behind recruiting: about 3,300 commits and 2,300 merged feature and fix pull requests across ten repositories since January.",
     points: [
       "Built the Mandate Assistant, an AI recruiting agent that runs a client mandate end to end through 42 permission-scoped tools, with read-only SQL under a time limit and row cap, an approval card on every write, and a headless driver that moves a mandate through seven stages to invoice and collection.",
+      "Built GoodSpace Autopilot from my own idea, with Akshat as designer: a job application engine across three services with a step-level run engine on queues, resume tailoring, a Chrome extension that fills Greenhouse, Lever, Ashby and Workable forms, and outreach from the member's own Gmail. Released to every member in October 2026.",
       "Extended the same engine into three more agents for leadership, sales and email operations (40 to 53 tools each), checked against an eval set of real questions on live data, with prompt caching, live spend tracking and a multi-account provider pool that fails over on its own.",
       "Rebuilt the AI video interview on Amazon Nova Sonic over WebRTC, replacing socket.io audio over TCP: RTP paced at 20 ms on a drift-corrected clock, model streams rotated at turn boundaries to outlive an 8-minute cap in 15-minute interviews, and zombie sessions that held capacity for 16+ hours fixed.",
       "Built GOODex end to end: replaced regex candidate matching with semantic search on OpenSearch and Voyage embeddings, tuned it on live traffic, shipped it as a metered external API with hashed keys and org credits, and moved its UI from Vite to Next.js in 6 days.",
       "Built LLM lead qualification where the model returns sourced company facts and code computes a 10-point ICP score, plus a router that assigns qualified leads to in-office reps every 10 minutes with accept-or-reassign.",
-      "Moved WhatsApp to Meta's Cloud API with signed webhooks into a Kafka consumer, and built the multi-channel outreach and screening flows on top: voice calls, agent-written email, WhatsApp screening and a BullMQ reply loop into LLM analysis.",
+      "Rebuilt premium plans on Razorpay: collapsed a legacy multi-plan catalog into one Gold product with 1, 3 and 6 month terms, added a 7-day trial as its own subscription state, attributed every payment to its surface across web and app, and fixed an outage that had broken every webhook renewal.",
+      "Moved WhatsApp to Meta's Cloud API with signed webhooks into a Kafka consumer and a self-hosted Chatwoot team inbox, and built the multi-channel outreach and screening flows on top: voice calls, agent-written email, WhatsApp screening and a BullMQ reply loop into LLM analysis.",
       "Stopped heavy dashboards from overloading MySQL with a Redis single-flight cache and per-request query budgets; before the fix, about half of dashboard requests ended with the client giving up.",
-      "Extended Gold subscriptions on Razorpay (7-day trial, pricing revamp, payment attribution) and fixed an outage that broke every webhook renewal. Also co-built Goodness Score v2, and built background verification, cross-platform QR login and the public site's technical SEO.",
+      "Also co-built Goodness Score v2, and built background verification, cross-platform QR login, email integrations on AWS SES and Resend, and the public site's technical SEO.",
     ],
-    stack: ["Node.js", "Express", "Next.js", "React", "MySQL", "MongoDB", "Redis", "BullMQ", "Kafka", "OpenSearch", "WebRTC", "Claude", "AWS Bedrock"],
+    stack: ["Node.js", "Express", "Next.js", "React", "MySQL", "MongoDB", "Redis", "BullMQ", "Kafka", "OpenSearch", "WebRTC", "Claude", "AWS", "Razorpay", "Meta Cloud API", "Chatwoot", "Resend"],
   },
   {
     company: "Tecnod8.ai",
@@ -67,5 +69,6 @@ export const skills: Array<{ group: string; items: string[] }> = [
   { group: "Backend", items: ["Node.js", "Express", "REST APIs", "BullMQ", "Kafka", "Webhooks", "Server-Sent Events", "WebRTC", "FastAPI"] },
   { group: "Data and search", items: ["MySQL", "MongoDB", "PostgreSQL", "Redis", "OpenSearch (vector and full-text)"] },
   { group: "AI systems", items: ["Claude Managed Agents", "Tool calling", "MCP", "Prompt caching", "Evals", "Embeddings and rerank", "Realtime speech (Nova Sonic)"] },
-  { group: "Cloud and tools", items: ["AWS (Bedrock, SES, ECR)", "GCP", "Vercel", "Docker", "GitHub Actions", "Git"] },
+  { group: "Integrations", items: ["Razorpay", "Meta WhatsApp Cloud API", "Chatwoot", "Resend", "AWS SES", "Gmail API", "Google Meet and Calendar", "Slack"] },
+  { group: "Cloud and tools", items: ["AWS (Bedrock, SES, S3, ECR, Transcribe)", "GCP", "Vercel", "Docker", "GitHub Actions", "Git"] },
 ];

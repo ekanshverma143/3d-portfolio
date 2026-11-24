@@ -46,8 +46,9 @@ export default function AboutPage() {
           <p>
             My first job was frontend work on industrial AI products at Tecnod8.ai, where I ended up leading the frontend
             team for clients like DENSO and Maruti Suzuki. Today I&apos;m an SDE at GoodSpace AI, where I build the agents
-            behind hiring: one that runs a recruiting mandate from job description to invoice, a realtime voice
-            interviewer, and the semantic search recruiters use to find people.
+            behind hiring: one that runs a recruiting mandate from job description to invoice, Autopilot, which applies to
+            jobs on a member&apos;s behalf, a realtime voice interviewer, and the semantic search recruiters use to find
+            people. I also rebuilt our premium Gold plans on Razorpay.
           </p>
           <p>
             The thread through all of it is that I care about what happens after the demo. An agent that works once is

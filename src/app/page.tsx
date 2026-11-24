@@ -51,8 +51,8 @@ export default function Home() {
             </h1>
             <p className="rise mt-8 text-lg leading-relaxed text-pretty text-muted sm:text-xl [animation-delay:160ms]">
               I build AI systems that <span className="font-serif text-[1.15em] text-fg italic">do the work</span>: agents
-              that run a hiring pipeline end to end, a voice interviewer that holds a fifteen-minute conversation, and search
-              that understands people.
+              that run a hiring pipeline end to end, an engine that applies to jobs for you, a voice interviewer that holds a
+              fifteen-minute conversation, and search that understands people.
             </p>
             <div className="rise mt-10 flex flex-wrap gap-3 [animation-delay:240ms]">
               <ButtonLink href="/projects">See the work</ButtonLink>
