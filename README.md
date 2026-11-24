@@ -1,24 +1,28 @@
-# 3D Portfolio Website
+# ekanshverma.site
 
-This repository contains the code for my 3D portfolio website, showcasing my work using modern web technologies including Vite.js, React Three Fiber, React.js, Tailwind CSS, Drei, and more.
+Personal site of Ekansh Verma. Next.js 16 (App Router, fully static), Tailwind 4 and a three.js hero built with React Three Fiber.
 
-## Technologies Used
+```bash
+npm install
+npm run dev        # http://localhost:3000
+npm run build      # production build
+```
 
-- **Vite.js**: Fast, modern build tool for web development.
-- **React Three Fiber**: React renderer for Three.js, facilitating 3D rendering in the browser.
-- **React.js**: JavaScript library for building user interfaces.
-- **Tailwind CSS**: Utility-first CSS framework for rapid UI development.
-- **Drei**: Collection of useful helpers and abstractions for React Three Fiber.
+## Content
 
-## Features
+- Projects and case studies: `src/content/projects.ts` (a project with `caseStudy` gets its own page)
+- Experience, education, skills: `src/content/experience.ts`
+- Blog posts: Markdown files in `content/blog/` with `title`, `description`, `date`, `tags` front matter. Set `draft: true` to hide one.
+- Site name, links, canonical URL: `src/content/site.ts`
 
-- Interactive 3D models and scenes rendered using React Three Fiber.
-- Responsive design with Tailwind CSS for a visually appealing layout.
-- Smooth navigation and animations to enhance user experience.
-- Showcase section with detailed project information and links.
+Sitemap, robots.txt, RSS (`/blog/rss.xml`) and Open Graph images are generated from that content at build time.
 
-## Installation
+## Resume
 
-1. Clone the repository:
-   ```bash
-   git clone https://github.com/ekanshverma143/3d-portfolio.git
+The resume source is `resume/resume.html`. To regenerate the PDF served at `/Ekansh_Verma_Resume.pdf`:
+
+```bash
+node scripts/build-resume.mjs
+```
+
+It prints with a local Chrome install (pass a different Chrome path as the first argument if needed).

@@ -1,0 +1,129 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<title>Ekansh Verma - Resume</title>
+<style>
+  @page { size: A4; margin: 0; }
+  * { box-sizing: border-box; }
+  html, body { margin: 0; padding: 0; }
+  body {
+    font-family: "Cambria", "Georgia", "Times New Roman", serif;
+    font-size: 9.9pt;
+    line-height: 1.34;
+    color: #111;
+    -webkit-print-color-adjust: exact;
+  }
+  .page { width: 210mm; padding: 11mm 13mm 10mm; }
+  a { color: inherit; text-decoration: none; }
+  header { text-align: center; }
+  h1 { font-size: 23pt; font-variant: small-caps; letter-spacing: 0.04em; margin: 0; font-weight: 400; }
+  .role { margin-top: 1.5pt; }
+  .contact { margin-top: 1.5pt; }
+  .links { margin-top: 1.5pt; font-weight: 700; }
+  .sep { margin: 0 5pt; }
+  h2 {
+    font-size: 10.6pt; font-variant: small-caps; font-weight: 400; letter-spacing: 0.03em;
+    margin: 8pt 0 3pt; padding-bottom: 1.5pt; border-bottom: 0.9pt solid #111;
+  }
+  .row { display: flex; justify-content: space-between; gap: 12pt; }
+  .entry { margin: 0 0 4pt 10pt; }
+  .entry + .entry { margin-top: 5pt; }
+  .title { font-weight: 700; }
+  .sub { display: flex; justify-content: space-between; }
+  ul { margin: 2pt 0 0; padding-left: 26pt; }
+  li { margin: 0 0 1.6pt; padding-left: 1pt; }
+  .skills { margin-left: 10pt; }
+  .skills div { margin-bottom: 0.8pt; }
+  .skills b { font-weight: 700; }
+  .muted { font-weight: 400; }
+</style>
+</head>
+<body>
+<div class="page">
+  <header>
+    <h1>Ekansh Verma</h1>
+    <div class="role">Software Development Engineer | Full-Stack and AI Systems</div>
+    <div class="contact">
+      <a href="mailto:ekanshverma143@gmail.com">ekanshverma143@gmail.com</a><span class="sep">|</span><a href="tel:+918091758143">+91-8091758143</a><span class="sep">|</span>Dhalpur, Kullu, H.P.
+    </div>
+    <div class="links">
+      <a href="https://github.com/ekanshverma143">GitHub</a><span class="sep">|</span><a href="https://www.linkedin.com/in/ekansh-verma-469557228">LinkedIn</a><span class="sep">|</span><a href="https://www.ekanshverma.site">ekanshverma.site</a>
+    </div>
+  </header>
+
+  <h2>Education</h2>
+  <div class="entry">
+    <div class="row"><span class="title">National Institute of Technology, Hamirpur</span><span>Himachal Pradesh</span></div>
+    <div class="sub"><span>B.Tech. in Electrical Engineering</span><span>December 2021 - May 2025</span></div>
+  </div>
+
+  <h2>Skills &amp; Tools</h2>
+  <div class="skills">
+    <div><b>Languages :</b> JavaScript, TypeScript, SQL, Python, Dart, HTML, CSS</div>
+    <div><b>Frontend :</b> React.js, Next.js, Redux, Zustand, Tailwind CSS, three.js, Flutter, Chrome Extensions</div>
+    <div><b>Backend :</b> Node.js, Express, REST APIs, BullMQ, Kafka, Webhooks, Server-Sent Events, WebRTC, FastAPI</div>
+    <div><b>Databases &amp; Search :</b> MySQL, MongoDB, PostgreSQL, Redis, OpenSearch (vector + full-text)</div>
+    <div><b>AI Systems :</b> Claude Managed Agents, tool calling, MCP, prompt caching, evals, embeddings and rerank (Voyage), realtime speech (Nova Sonic)</div>
+    <div><b>Cloud &amp; Tools :</b> AWS (Bedrock, SES, ECR), GCP (GCS), Vercel, Docker, GitHub Actions, Git</div>
+  </div>
+
+  <h2>Work Experience</h2>
+  <div class="entry">
+    <div class="row"><span class="title">GoodSpace AI | Software Development Engineer 1</span><span>Noida | January 2026 - Present</span></div>
+    <ul>
+      <li>Built the Mandate Assistant, an autonomous recruiting agent that runs a client mandate end to end (JD engineering, client questionnaire, sourcing, fit scoring, WhatsApp and voice screening, client email, offer and invoice) through 42 permission-scoped tools with an approval gate on every write, plus a headless driver that advances a mandate through seven pipeline stages without a human.</li>
+      <li>Extended the agent engine into three more Claude Managed Agents for leadership, sales and email operations (40 to 53 tools each), with a 12-question eval set run against live data, prompt caching, live spend from the Anthropic cost report, and a multi-org account pool that fails over automatically when one org runs out of credit.</li>
+      <li>Rebuilt the AI video interview on Amazon Nova Sonic speech-to-speech over WebRTC (werift), replacing socket.io audio over TCP: paced RTP at 20 ms on a drift-corrected clock, rotated model streams at turn boundaries to outlive the 8-minute stream cap in 15-minute interviews, and fixed reconnect logic that let zombie sessions hold capacity for 16+ hours.</li>
+      <li>Built GOODex, the company's recruiter-facing candidate search product, end to end: replaced regex matching with an OpenSearch semantic engine over Voyage embeddings, and shipped it as a metered external API.</li>
+      <li>Built LLM lead qualification in which the model returns sourced company facts and code computes a 10-point ICP score (BullMQ queue with a daily research budget), plus an MQL gate and a router that assigns qualified leads to in-office reps every 10 minutes with accept-or-reassign across up to 3 reps.</li>
+      <li>Built the multi-channel AI outreach pipeline (voice calls, agent-sent emails, WhatsApp screening bots) with per-mandate agent flows by stage, a reply loop routing Gmail webhooks through BullMQ workers into LLM analysis, and a cross-channel contact check; migrated WhatsApp to Meta's Cloud API with signed webhooks into a Kafka consumer.</li>
+      <li>Cut duplicate dashboard load with a Redis single-flight cache and per-request MySQL query budgets (MAX_EXECUTION_TIME set to the route deadline, no new queries once the client disconnects); before, half of dashboard requests ended in 499 and concurrent misses re-ran the same 15-20 s aggregation up to 9 times.</li>
+      <li>Extended the premium subscription system on Razorpay (GOLD with 1M, 3M and 6M terms, a 7-day trial, payment attribution) and diagnosed and fixed an outage that had broken 100% of paid renewals: a spread-copied DB connection lost mysql2's execute, and a payment claim made outside the transaction made every failure un-retryable.</li>
+      <li>Also built background verification workflows, cross-platform QR login, a MongoDB oplog backfill for the admin audit trail and technical SEO for the public site; co-built the Goodness Score v2 assessment.</li>
+    </ul>
+  </div>
+  <div class="entry">
+    <div class="row"><span class="title">Tecnod8.ai | Frontend Developer</span><span>Remote | Dec 2024 - Jan 2026</span></div>
+    <ul>
+      <li>Developed frontends for in-house AI products: an Agentic AI 3D training platform for an Air Force technical college, an Agentic AI robot program generator, and a PLC video anomaly monitoring system for DENSO International.</li>
+      <li>Rebuilt the company website with improved user flow, diagnosing and fixing the SEO defects that were suppressing organic reach.</li>
+      <li>Designed and built frontend interfaces for clients including Maruti Suzuki (MSIL) warehouse management.</li>
+    </ul>
+  </div>
+
+  <h2>Projects</h2>
+  <div class="entry">
+    <div class="row"><span class="title">Mandate Assistant - Autonomous Hiring Pipeline <span class="muted">| GoodSpace AI</span></span></div>
+    <ul>
+      <li>Designed the execution layer: 42 backend tools scoped to the signed-in admin's own permissions (read-only SQL transactions, allowlisted Mongo, the admin API called with that user's token) spanning Gmail threads, Slack, WhatsApp, AI voice calls and generated PDFs. Every write becomes an Approve/Reject card, so the system can do what its operator can and nothing more.</li>
+      <li>Kept facts in code, not in the model: a per-turn state snapshot from about 10 parallel queries (cached and hash-deduplicated), a signals engine that computes stage lag and unanswered client mail, and a shared per-mandate brief that carries research across sessions and users.</li>
+      <li>Raised autonomy in steps: approval cards, then an autopilot that clears them for chosen mandates and wakes on client replies within 10 seconds, then a headless server-side driver that moves a mandate through all seven stages to invoice and collection, stopping only at sign-off gates with deadlines, under a cross-replica Redis lock.</li>
+      <li>Hardened it for production: provider failover across three accounts, session budgets that rotate to a re-seeded session at 85%, a per-turn cost ledger, agent config as code with a dry-run diff in every PR, and an end-to-end driver that verifies the whole flow in about 3.6 minutes.</li>
+    </ul>
+  </div>
+  <div class="entry">
+    <div class="row"><span class="title">Realtime Voice Interviewer - Nova Sonic over WebRTC <span class="muted">| GoodSpace AI</span></span></div>
+    <ul>
+      <li>Moved candidate audio from socket.io over TCP to a WebRTC media track after TCP head-of-line blocking turned brief packet loss into multi-second stalls; loss now costs a 20 ms gap, with the browser's echo cancellation, jitter buffer and NACK in play.</li>
+      <li>Debugged from captured audio and session stats rather than by ear: RTP sent faster than real time (11.8 s of audio in 7 s), one sentence playing as two voices (transport latched per utterance), and English transcribed as Hindi after barge-in. Audio encoding costs about 1% of one core (0.146 ms per frame).</li>
+    </ul>
+  </div>
+  <div class="entry">
+    <div class="row"><span class="title">GOODex - Semantic Candidate Search Engine <span class="muted">| GoodSpace AI</span></span></div>
+    <ul>
+      <li>Designed a 14-field enriched OpenSearch index with KNN vector search over Voyage embeddings and a full-text fallback, then ran an 11-week relevance program on live traffic (experience proximity, profile completeness, compensation and company match) with a post-fetch re-rank against MongoDB as the source of truth.</li>
+      <li>Productized it as a metered external API with key authentication, per-key usage history and org-scoped credit quotas; re-platformed the full UI from Vite to Next.js in 6 days.</li>
+    </ul>
+  </div>
+
+
+  <h2>Position of Responsibility</h2>
+  <ul style="margin-left: 10pt">
+    <li>Frontend Team Lead, Tecnod8.AI - led frontend delivery for clients including DENSO and MSIL.</li>
+    <li>UI/UX Lead - Google Developer Student Clubs, NIT Hamirpur (2023-2024).</li>
+    <li>Secretary - Indian Society for Technical Education, NIT Hamirpur Chapter (2024-25).</li>
+  </ul>
+</div>
+</body>
+</html>
