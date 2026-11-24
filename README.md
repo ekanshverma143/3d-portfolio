@@ -26,3 +26,7 @@ node scripts/build-resume.mjs
 ```
 
 It prints with a local Chrome install (pass a different Chrome path as the first argument if needed).
+
+## Search engines
+
+After a deploy that adds or changes pages, run `node scripts/indexnow.mjs` to notify Bing and other IndexNow engines. `/llms.txt` is generated from the same content for AI crawlers.

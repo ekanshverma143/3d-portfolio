@@ -1,7 +1,7 @@
 ---
 title: "Shipping vectors took a week. Making search good took eleven."
 description: "Lessons from replacing regex candidate matching with semantic search on OpenSearch and Voyage embeddings, and the relevance work that came after launch."
-date: "2026-11-24"
+date: "2026-11-14"
 tags: ["Search", "Embeddings", "OpenSearch"]
 ---
 

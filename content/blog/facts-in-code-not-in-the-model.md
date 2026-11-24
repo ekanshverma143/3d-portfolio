@@ -1,7 +1,7 @@
 ---
 title: "Keep facts in code, not in the model"
 description: "The agent failures that hurt most are not bad reasoning. They are confidently wrong facts. Here is how I moved facts out of the conversation and into code."
-date: "2026-11-24"
+date: "2026-11-15"
 tags: ["AI agents", "LLMs", "Prompt caching", "Cost"]
 ---
 

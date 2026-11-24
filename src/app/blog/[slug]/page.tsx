@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { Arrow, Container, JsonLd, Tag } from "@/components/ui";
+import { personId } from "@/content/person";
 import { site } from "@/content/site";
 import { formatDate, getAllPosts, getPost } from "@/lib/blog";
 
@@ -57,7 +58,7 @@ export default async function PostPage({ params }: { params: Promise<{ slug: str
           mainEntityOfPage: `${site.url}/blog/${slug}`,
           image: `${site.url}/blog/${slug}/opengraph-image`,
           keywords: meta.tags.join(", "),
-          author: { "@type": "Person", name: site.name, url: site.url },
+          author: { "@type": "Person", "@id": personId, name: site.name, url: site.url },
         }}
       />
       <Container className="pt-36 sm:pt-44">

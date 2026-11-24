@@ -4,6 +4,7 @@ import { FeaturedCard } from "@/components/project-card";
 import { Arrow, ButtonLink, Container, JsonLd, SectionHeading } from "@/components/ui";
 import { education, roles } from "@/content/experience";
 import { projects } from "@/content/projects";
+import { personSchema } from "@/content/person";
 import { site } from "@/content/site";
 import { formatDate, getAllPosts } from "@/lib/blog";
 
@@ -20,21 +21,7 @@ export default function Home() {
 
   return (
     <>
-      <JsonLd
-        data={{
-          "@context": "https://schema.org",
-          "@type": "Person",
-          name: site.name,
-          url: site.url,
-          email: `mailto:${site.email}`,
-          jobTitle: site.role,
-          worksFor: { "@type": "Organization", name: "GoodSpace AI", url: "https://goodspace.ai" },
-          alumniOf: { "@type": "CollegeOrUniversity", name: education.school },
-          address: { "@type": "PostalAddress", addressLocality: "Noida", addressCountry: "IN" },
-          sameAs: [site.links.github, site.links.linkedin],
-          knowsAbout: ["AI agents", "LLM tool calling", "Semantic search", "WebRTC", "Realtime voice AI", "Next.js", "Node.js", "TypeScript"],
-        }}
-      />
+      <JsonLd data={{ "@context": "https://schema.org", ...personSchema }} />
 
       <section className="relative isolate overflow-hidden">
         <HeroCanvas />

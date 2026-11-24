@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
-import { ButtonLink, Container, PageHeader } from "@/components/ui";
+import { ButtonLink, Container, JsonLd, PageHeader } from "@/components/ui";
 import { skills } from "@/content/experience";
+import { personSchema } from "@/content/person";
 import { site } from "@/content/site";
 
 export const metadata: Metadata = {
@@ -28,6 +29,15 @@ const principles = [
 export default function AboutPage() {
   return (
     <>
+      <JsonLd
+        data={{
+          "@context": "https://schema.org",
+          "@type": "ProfilePage",
+          url: `${site.url}/about`,
+          name: `About ${site.name}`,
+          mainEntity: personSchema,
+        }}
+      />
       <PageHeader
         eyebrow="About"
         title={

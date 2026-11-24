@@ -3,6 +3,7 @@ import Link from "next/link";
 import { notFound } from "next/navigation";
 import { Arrow, ButtonLink, Container, JsonLd, Tag } from "@/components/ui";
 import { getProject, projects } from "@/content/projects";
+import { personId } from "@/content/person";
 import { site } from "@/content/site";
 
 export const dynamicParams = false;
@@ -41,7 +42,7 @@ export default async function CaseStudy({ params }: { params: Promise<{ slug: st
           name: p.title,
           description: p.summary,
           url: `${site.url}/projects/${slug}`,
-          creator: { "@type": "Person", name: site.name, url: site.url },
+          creator: { "@type": "Person", "@id": personId, name: site.name, url: site.url },
           keywords: p.stack.join(", "),
         }}
       />
