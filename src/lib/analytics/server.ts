@@ -9,8 +9,9 @@ export const DAY_TTL = 60 * 60 * 24 * 120;
 let client: Redis | null | undefined;
 export function getRedis() {
   if (client !== undefined) return client;
-  const url = process.env.UPSTASH_REDIS_REST_URL ?? process.env.KV_REST_API_URL;
-  const token = process.env.UPSTASH_REDIS_REST_TOKEN ?? process.env.KV_REST_API_TOKEN;
+  const env = process.env;
+  const url = env.UPSTASH_REDIS_REST_URL ?? env.KV_REST_API_URL ?? env.STORAGE_REST_API_URL ?? env.STORAGE_KV_REST_API_URL;
+  const token = env.UPSTASH_REDIS_REST_TOKEN ?? env.KV_REST_API_TOKEN ?? env.STORAGE_REST_API_TOKEN ?? env.STORAGE_KV_REST_API_TOKEN;
   client = url && token ? new Redis({ url, token }) : null;
   return client;
 }
