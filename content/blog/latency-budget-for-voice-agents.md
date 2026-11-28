@@ -2,6 +2,7 @@
 title: "Where the milliseconds go in a voice agent"
 description: "A voice agent feels slow long before any one part looks slow. How to split the delay into capture, network, buffering, model and playback, and measure each."
 date: "2026-10-21"
+id: 3
 tags: ["Realtime voice", "WebRTC", "Observability"]
 ---
 

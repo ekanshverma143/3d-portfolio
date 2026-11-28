@@ -2,6 +2,7 @@
 title: "Evals from real questions, against live data"
 description: "My agent eval set is twelve real leadership questions graded against live data, where the right answer changes daily. How to build one that catches regressions."
 date: "2026-11-03"
+id: 16
 tags: ["Evals", "AI agents", "LLMs"]
 ---
 

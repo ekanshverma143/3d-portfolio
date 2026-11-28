@@ -2,6 +2,7 @@
 title: "Embeddings in production are mostly plumbing"
 description: "Picking an embedding model is the quick decision. What to embed, when to re-embed, how to stay fresh and how to meter search as an API is the real work."
 date: "2026-10-27"
+id: 9
 tags: ["Embeddings", "Search", "Product engineering", "Security"]
 ---
 

@@ -2,6 +2,7 @@
 title: "One spread operator, every renewal"
 description: "A subscription renewal bug that came down to two small decisions: copying an object with a spread, and claiming a payment outside the transaction that used it."
 date: "2026-11-16"
+id: 29
 tags: ["JavaScript", "Payments", "Debugging"]
 ---
 

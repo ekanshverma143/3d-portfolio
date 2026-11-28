@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
+import { ReaderTools } from "@/components/reader-tools";
 import { ShareBar } from "@/components/share-bar";
 import { Arrow, Container, JsonLd, Tag } from "@/components/ui";
 import { personId } from "@/content/person";
@@ -10,26 +11,26 @@ import { formatDate, getAllPosts, getPost } from "@/lib/blog";
 export const dynamicParams = false;
 
 export function generateStaticParams() {
-  return getAllPosts().map((p) => ({ slug: p.slug }));
+  return getAllPosts().map((p) => ({ id: String(p.id) }));
 }
 
-export async function generateMetadata({ params }: { params: Promise<{ slug: string }> }): Promise<Metadata> {
-  const { slug } = await params;
-  const post = await getPost(slug);
+export async function generateMetadata({ params }: { params: Promise<{ id: string }> }): Promise<Metadata> {
+  const { id } = await params;
+  const post = await getPost(id);
   if (!post) return {};
   const { meta } = post;
   return {
     title: meta.title,
     description: meta.description,
     keywords: meta.tags,
-    alternates: { canonical: `/blog/${slug}` },
+    alternates: { canonical: `/blog/${post.meta.id}` },
     openGraph: {
       type: "article",
       siteName: site.name,
       locale: "en_IN",
       title: meta.title,
       description: meta.description,
-      url: `/blog/${slug}`,
+      url: `/blog/${post.meta.id}`,
       publishedTime: meta.date,
       modifiedTime: meta.updated ?? meta.date,
       authors: [site.name],
@@ -39,17 +40,24 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
   };
 }
 
-export default async function PostPage({ params }: { params: Promise<{ slug: string }> }) {
-  const { slug } = await params;
-  const post = await getPost(slug);
+export default async function PostPage({ params }: { params: Promise<{ id: string }> }) {
+  const { id } = await params;
+  const post = await getPost(id);
   if (!post) notFound();
-  const { meta, html } = post;
-  const postUrl = `${site.url}/blog/${slug}`;
+  const { meta, html, toc } = post;
+  const slug = meta.slug;
+  const postUrl = `${site.url}/blog/${meta.id}`;
   const all = getAllPosts();
   const others = all.filter((p) => p.slug !== slug).slice(0, 2);
 
   return (
     <article>
+      <script
+        dangerouslySetInnerHTML={{
+          __html: "try{var s=localStorage.getItem('reader-size');if(s)document.documentElement.dataset.readerSize=s}catch(e){}",
+        }}
+      />
+      <ReaderTools slug={slug} title={meta.title} url={postUrl} toc={toc} minutes={meta.readingMinutes} />
       <JsonLd
         data={{
           "@context": "https://schema.org",
@@ -58,9 +66,9 @@ export default async function PostPage({ params }: { params: Promise<{ slug: str
           description: meta.description,
           datePublished: meta.date,
           dateModified: meta.updated ?? meta.date,
-          url: `${site.url}/blog/${slug}`,
-          mainEntityOfPage: `${site.url}/blog/${slug}`,
-          image: `${site.url}/blog/${slug}/opengraph-image`,
+          url: postUrl,
+          mainEntityOfPage: postUrl,
+          image: `${postUrl}/opengraph-image`,
           keywords: meta.tags.join(", "),
           author: { "@type": "Person", "@id": personId, name: site.name, url: site.url },
         }}
@@ -91,7 +99,7 @@ export default async function PostPage({ params }: { params: Promise<{ slug: str
           <figure className="mt-8 overflow-hidden rounded-2xl border border-line">
             {/* eslint-disable-next-line @next/next/no-img-element */}
             <img
-              src={`/blog/${slug}/cover.svg`}
+              src={`/blog/${meta.id}/cover.svg`}
               alt={`Illustration for ${meta.title}`}
               width={1200}
               height={630}
@@ -100,7 +108,8 @@ export default async function PostPage({ params }: { params: Promise<{ slug: str
             />
           </figure>
           <div
-            className="prose prose-invert prose-site prose-lg mt-10 max-w-none prose-headings:font-medium prose-p:leading-[1.8]"
+            id="article-body"
+            className="prose prose-invert prose-site prose-lg reader-prose mt-10 max-w-none prose-headings:font-medium prose-p:leading-[1.8]"
             dangerouslySetInnerHTML={{ __html: html }}
           />
           <div className="mt-14 rounded-2xl border border-line bg-panel p-6 sm:p-7">
@@ -121,11 +130,11 @@ export default async function PostPage({ params }: { params: Promise<{ slug: str
               {others.map((p) => (
                 <li key={p.slug}>
                   <Link
-                    href={`/blog/${p.slug}`}
+                    href={`/blog/${p.id}`}
                     className="group block h-full overflow-hidden rounded-2xl border border-line transition-colors hover:border-line-strong hover:bg-panel"
                   >
                     {/* eslint-disable-next-line @next/next/no-img-element */}
-                    <img src={`/blog/${p.slug}/cover.svg`} alt="" width={1200} height={630} loading="lazy" className="block h-auto w-full border-b border-line" />
+                    <img src={`/blog/${p.id}/cover.svg`} alt="" width={1200} height={630} loading="lazy" className="block h-auto w-full border-b border-line" />
                     <span className="block px-5 pt-4 font-mono text-[11px] text-faint">{formatDate(p.date)}</span>
                     <span className="mt-2 block px-5 pb-5 font-medium tracking-tight group-hover:text-signal">{p.title}</span>
                   </Link>

@@ -2,6 +2,7 @@
 title: "Putting internal tools behind MCP, carefully"
 description: "What to decide before exposing internal systems to an AI assistant over MCP: read-only by default, scoped to the signed-in user, and tools a model can use well."
 date: "2026-11-06"
+id: 19
 tags: ["MCP", "AI agents", "Security", "Developer tools"]
 ---
 

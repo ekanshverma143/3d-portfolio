@@ -31,7 +31,7 @@ export function GET() {
     ...projects.filter((p) => !p.caseStudy).map((p) => `- ${p.title} (${p.org}): ${p.summary}`),
     "",
     "## Writing",
-    ...posts.map((p) => `- [${p.title}](${site.url}/blog/${p.slug}): ${p.description}`),
+    ...posts.map((p) => `- [${p.title}](${site.url}/blog/${p.id}): ${p.description}`),
     "",
     "## Skills",
     ...skills.map((s) => `- ${s.group}: ${s.items.join(", ")}`),

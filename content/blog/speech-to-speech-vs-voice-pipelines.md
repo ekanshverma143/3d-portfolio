@@ -2,6 +2,7 @@
 title: "Speech-to-speech or a voice pipeline?"
 description: "One model that hears and speaks, or three that transcribe, think and talk. The real trade-offs in latency, control, transcripts, tool use and debugging."
 date: "2026-10-30"
+id: 12
 tags: ["Realtime voice", "LLMs", "Tool calling"]
 ---
 

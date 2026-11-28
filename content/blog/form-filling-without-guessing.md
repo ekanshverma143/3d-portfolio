@@ -2,6 +2,7 @@
 title: "Filling job application forms without guessing"
 description: "A wrong answer on an application form is worse than a blank one. How I built a Chrome extension that fills Greenhouse, Lever, Ashby and Workable forms in order of trust."
 date: "2026-11-18"
+id: 31
 tags: ["Chrome extensions", "LLMs", "Product engineering"]
 ---
 

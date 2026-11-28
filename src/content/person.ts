@@ -10,6 +10,7 @@ export const personSchema = {
   givenName: "Ekansh",
   familyName: "Verma",
   url: site.url,
+  image: `${site.url}/app-icon/512`,
   email: `mailto:${site.email}`,
   jobTitle: site.role,
   description: site.description,

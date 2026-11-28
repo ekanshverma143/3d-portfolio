@@ -12,8 +12,8 @@ export function GET() {
     .map(
       (p) => `    <item>
       <title>${esc(p.title)}</title>
-      <link>${site.url}/blog/${p.slug}</link>
-      <guid isPermaLink="true">${site.url}/blog/${p.slug}</guid>
+      <link>${site.url}/blog/${p.id}</link>
+      <guid isPermaLink="true">${site.url}/blog/${p.id}</guid>
       <description>${esc(p.description)}</description>
       <pubDate>${new Date(`${p.date}T09:00:00+05:30`).toUTCString()}</pubDate>
 ${p.tags.map((t) => `      <category>${esc(t)}</category>`).join("\n")}

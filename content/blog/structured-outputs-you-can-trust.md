@@ -2,6 +2,7 @@
 title: "Structured output you can trust"
 description: "A schema gets you valid JSON. It does not get you the right JSON. Forced tool calls, validation, a regex fallback and read-backs, from two systems I built."
 date: "2026-11-09"
+id: 22
 tags: ["LLMs", "Tool calling", "Local LLMs"]
 ---
 

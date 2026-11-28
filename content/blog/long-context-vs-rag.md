@@ -2,6 +2,7 @@
 title: "Long context or RAG? For live data, often neither"
 description: "Stuffing the context window and RAG are not the only options. For live data, computing a small fresh state every turn often beats both on cost and accuracy."
 date: "2026-10-22"
+id: 4
 tags: ["RAG", "LLMs", "AI agents", "Cost"]
 ---
 

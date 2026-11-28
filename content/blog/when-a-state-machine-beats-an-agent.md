@@ -2,6 +2,7 @@
 title: "When a state machine beats an agent"
 description: "Two multi-step AI systems, two shapes: a step-level run engine for job applications and an open-ended agent for recruiting. How I decide which one a problem needs."
 date: "2026-11-08"
+id: 21
 tags: ["AI agents", "Product engineering", "Node.js"]
 ---
 

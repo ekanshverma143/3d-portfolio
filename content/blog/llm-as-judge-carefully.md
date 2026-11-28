@@ -2,6 +2,7 @@
 title: "LLM judges: one narrow question, or none"
 description: "A second model can stop a bad answer before it ships, or double your cost and approve nonsense. When an LLM judge earns its place, and how to keep it narrow."
 date: "2026-10-24"
+id: 6
 tags: ["Evals", "LLMs", "Cost"]
 ---
 

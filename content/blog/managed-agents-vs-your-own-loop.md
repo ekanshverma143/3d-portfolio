@@ -2,6 +2,7 @@
 title: "Managed agents vs your own agent loop"
 description: "A provider-run agent runtime or a loop you write yourself? Where tools run, who owns history, config across accounts, failover, cost and lock-in, weighed honestly."
 date: "2026-11-01"
+id: 14
 tags: ["AI agents", "LLMs", "Cost"]
 ---
 

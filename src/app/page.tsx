@@ -22,6 +22,17 @@ export default function Home() {
   return (
     <>
       <JsonLd data={{ "@context": "https://schema.org", ...personSchema }} />
+      <JsonLd
+        data={{
+          "@context": "https://schema.org",
+          "@type": "WebSite",
+          name: site.name,
+          url: site.url,
+          image: `${site.url}/logo.svg`,
+          publisher: { "@id": personSchema["@id"] },
+          inLanguage: "en",
+        }}
+      />
 
       <section className="relative isolate overflow-hidden">
         <HeroCanvas />
@@ -113,11 +124,11 @@ export default function Home() {
             {posts.map((post) => (
               <li key={post.slug}>
                 <Link
-                  href={`/blog/${post.slug}`}
+                  href={`/blog/${post.id}`}
                   className="group flex h-full flex-col overflow-hidden rounded-2xl border border-line transition-colors hover:border-line-strong hover:bg-panel"
                 >
                   {/* eslint-disable-next-line @next/next/no-img-element */}
-                  <img src={`/blog/${post.slug}/cover.svg`} alt="" width={1200} height={630} loading="lazy" className="block h-auto w-full border-b border-line" />
+                  <img src={`/blog/${post.id}/cover.svg`} alt="" width={1200} height={630} loading="lazy" className="block h-auto w-full border-b border-line" />
                   <span className="px-6 pt-5 font-mono text-[11px] text-faint">
                     {formatDate(post.date)} · {post.readingMinutes} min
                   </span>

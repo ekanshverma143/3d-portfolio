@@ -2,6 +2,7 @@
 title: "What I hand to an AI coding assistant, and what I keep"
 description: "About 2,300 merged pull requests this year, much of it written with an AI coding assistant. What I delegate, what I always review myself, and where it goes wrong."
 date: "2026-11-21"
+id: 34
 tags: ["Developer tools", "LLMs", "Product engineering"]
 ---
 

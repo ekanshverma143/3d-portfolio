@@ -2,6 +2,7 @@
 title: "Prompt caching is an ordering problem"
 description: "Turning on prompt caching takes one line. Getting cache hits is a design job: what goes first, what goes last, and how the usage numbers tell you it is working."
 date: "2026-11-17"
+id: 30
 tags: ["Prompt caching", "Cost", "LLMs"]
 ---
 

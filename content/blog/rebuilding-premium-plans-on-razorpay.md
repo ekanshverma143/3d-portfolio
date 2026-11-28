@@ -2,6 +2,7 @@
 title: "One product, three terms: rebuilding premium plans on Razorpay"
 description: "What I learned collapsing a catalog of legacy premium plans into one Gold product with 1, 3 and 6 month terms, a free trial, attribution on every payment and webhooks you can trust."
 date: "2026-11-22"
+id: 35
 tags: ["Payments", "Razorpay", "Product engineering"]
 ---
 

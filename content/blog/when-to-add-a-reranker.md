@@ -2,6 +2,7 @@
 title: "When to add a reranker"
 description: "A reranking model is often the biggest single relevance gain in a search stack. Where it sits, how many results to send it, and when it is the wrong fix."
 date: "2026-10-31"
+id: 13
 tags: ["Search", "RAG", "Embeddings", "Cost"]
 ---
 

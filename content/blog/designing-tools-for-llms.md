@@ -2,6 +2,7 @@
 title: "Designing tools for LLMs: fewer, smaller, typed"
 description: "Tool declarations are a token budget you pay on every turn. How I cut one from 2.8k to 1.3k tokens, and why the server, not the model, should supply ids."
 date: "2026-10-28"
+id: 10
 tags: ["Tool calling", "LLMs", "Prompt caching", "AI agents"]
 ---
 

@@ -2,6 +2,7 @@
 title: "Never let the model read facts from prose"
 description: "A job description is written to attract applicants, not to inform a model. Why role facts on my AI calls come from structured columns, and how to make missing data loud."
 date: "2026-11-02"
+id: 15
 tags: ["LLMs", "AI agents", "Evals"]
 ---
 

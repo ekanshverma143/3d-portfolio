@@ -2,6 +2,7 @@
 title: "LLM failover: switch on one error, never flap back"
 description: "Running every agent on a pool of provider accounts: which error triggers a switch, why it retries exactly once, why it never switches back, and how chats survive."
 date: "2026-11-05"
+id: 18
 tags: ["AI agents", "LLMs", "Product engineering"]
 ---
 

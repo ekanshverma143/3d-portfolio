@@ -2,6 +2,7 @@
 title: "Designing conversations that outlive the stream"
 description: "Realtime model sessions have a time cap; interviews do not. How to rotate streams at turn boundaries, carry context forward, keep state server-side and test a 15-minute call."
 date: "2026-10-19"
+id: 1
 tags: ["Realtime voice", "AI agents", "Node.js"]
 ---
 

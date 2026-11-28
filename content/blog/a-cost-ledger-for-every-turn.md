@@ -2,6 +2,7 @@
 title: "A cost ledger for every agent turn"
 description: "The provider's invoice says what you spent, not why. How a per-turn cost ledger shows where agent money goes, and which cuts are worth making first."
 date: "2026-11-19"
+id: 32
 tags: ["Cost", "AI agents", "Observability"]
 ---
 

@@ -2,6 +2,7 @@
 title: "Background agents that wake on events"
 description: "A headless agent has no user to start each turn. What wakes it, how per-entity queues stop two wakes colliding, why it must stop at gates, and what people see after."
 date: "2026-11-13"
+id: 26
 tags: ["AI agents", "Node.js", "Observability"]
 ---
 

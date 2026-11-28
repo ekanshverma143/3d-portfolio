@@ -2,6 +2,7 @@
 title: "Running a local LLM on a 4 GB GPU"
 description: "Notes from Jarvis, my early-stage local assistant: choosing a quantised model that fits 4 GB of VRAM, one-click setup, swappable backends and a bench command."
 date: "2026-10-23"
+id: 5
 tags: ["Local LLMs", "LLMs", "Developer tools"]
 ---
 

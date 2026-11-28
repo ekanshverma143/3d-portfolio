@@ -1,12 +1,16 @@
 import Link from "next/link";
 import { nav, site } from "@/content/site";
+import { LogoMark } from "./logo";
 
 export function SiteFooter() {
   return (
     <footer className="border-t border-line">
       <div className="mx-auto grid max-w-6xl gap-10 px-5 py-14 sm:px-8 md:grid-cols-[1.4fr_1fr_1fr]">
         <div>
-          <p className="text-lg font-medium tracking-tight">{site.name}</p>
+          <p className="flex items-center gap-3 text-lg font-medium tracking-tight">
+            <LogoMark className="size-9" />
+            {site.name}
+          </p>
           <p className="mt-2 max-w-sm text-sm leading-relaxed text-muted">
             Software engineer building agentic AI systems, search and full-stack products. Based in {site.location}.
           </p>

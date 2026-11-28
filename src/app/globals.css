@@ -146,3 +146,70 @@ body {
   font-style: normal;
   font-weight: 400;
 }
+
+html {
+  -webkit-tap-highlight-color: transparent;
+  -webkit-text-size-adjust: 100%;
+  text-size-adjust: 100%;
+  scroll-padding-top: 5.5rem;
+}
+
+.no-scrollbar {
+  scrollbar-width: none;
+}
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+
+.prose.reader-prose {
+  font-size: 1.0625rem;
+}
+@media (min-width: 640px) {
+  .prose.reader-prose {
+    font-size: 1.125rem;
+  }
+}
+html[data-reader-size="s"] .prose.reader-prose {
+  font-size: 0.97rem;
+}
+html[data-reader-size="m"] .prose.reader-prose {
+  font-size: 1.0625rem;
+}
+html[data-reader-size="l"] .prose.reader-prose {
+  font-size: 1.22rem;
+}
+@media (min-width: 640px) {
+  html[data-reader-size="m"] .prose.reader-prose {
+    font-size: 1.125rem;
+  }
+  html[data-reader-size="l"] .prose.reader-prose {
+    font-size: 1.28rem;
+  }
+}
+
+@media (max-width: 639px) {
+  .prose-site pre {
+    margin-inline: -1.25rem;
+    border-radius: 0;
+    border-inline: 0;
+    font-size: 0.8em;
+    padding-inline: 1.25rem;
+  }
+  .prose-site table {
+    display: block;
+    overflow-x: auto;
+    white-space: nowrap;
+  }
+  .prose-site h2 {
+    font-size: 1.45em;
+  }
+  .prose-site blockquote {
+    padding-left: 0.9em;
+  }
+}
+
+@media (hover: none) {
+  .link-underline {
+    background-size: 100% 1px;
+  }
+}

@@ -2,6 +2,7 @@
 title: "Let the model find facts, let code keep the score"
 description: "Ask an LLM to score a sales lead and the number drifts. Ask it for sourced facts and score them in code, and you get a number you can audit and change."
 date: "2026-11-12"
+id: 25
 tags: ["LLMs", "AI agents", "Tool calling", "Cost"]
 ---
 

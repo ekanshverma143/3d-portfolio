@@ -1,4 +1,5 @@
 import { ImageResponse } from "next/og";
+import { logoDataUri } from "@/content/logo";
 
 export const ogSize = { width: 1200, height: 630 };
 
@@ -38,7 +39,8 @@ export function ogImage({ eyebrow, title, footer }: { eyebrow: string; title: st
           />
         ))}
         <div style={{ display: "flex", alignItems: "center", gap: 14, fontSize: 24, color: "#8d9099", letterSpacing: 3 }}>
-          <div style={{ width: 14, height: 14, borderRadius: 999, background: "#ffb35c" }} />
+          {/* eslint-disable-next-line @next/next/no-img-element */}
+          <img src={logoDataUri()} width={52} height={52} alt="" />
           {eyebrow.toUpperCase()}
         </div>
         <div style={{ display: "flex", fontSize: title.length > 60 ? 58 : 70, lineHeight: 1.08, letterSpacing: -2, maxWidth: 820 }}>

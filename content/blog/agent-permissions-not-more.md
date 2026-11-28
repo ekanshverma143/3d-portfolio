@@ -2,6 +2,7 @@
 title: "Give your agent your permissions, not more"
 description: "How I gave an LLM agent 42 real tools across email, WhatsApp, SQL and payments without giving it any power its operator didn't already have."
 date: "2026-11-20"
+id: 33
 tags: ["AI agents", "Tool calling", "Security"]
 ---
 

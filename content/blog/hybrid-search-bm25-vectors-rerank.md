@@ -2,6 +2,7 @@
 title: "Rank the top 2,000, not the top 200"
 description: "How I combine BM25, dense vectors, keyword recall and structured match matrices to rank a candidate pool, and why the first stage should be generous."
 date: "2026-11-04"
+id: 17
 tags: ["Search", "Embeddings", "RAG"]
 ---
 

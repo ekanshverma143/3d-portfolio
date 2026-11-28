@@ -2,6 +2,7 @@
 title: "Kill switches and dry runs: shipping AI features you can turn off"
 description: "Before an AI feature writes anything real, it should stop when told and show you what it would have done. The ladder I use to go from dry run to live."
 date: "2026-11-10"
+id: 23
 tags: ["AI agents", "Product engineering", "Observability"]
 ---
 

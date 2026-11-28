@@ -2,6 +2,7 @@
 title: "Why TCP breaks live speech"
 description: "What I learned moving a realtime AI voice interviewer from socket.io over TCP to a WebRTC media track, and the bugs that only showed up once I measured the audio."
 date: "2026-11-24"
+id: 37
 tags: ["WebRTC", "Realtime voice", "Node.js"]
 ---
 

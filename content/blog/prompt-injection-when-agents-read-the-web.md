@@ -2,6 +2,7 @@
 title: "Treat every page your agent reads as data"
 description: "Agents that read web pages and email will meet text written to steer them. The defences that hold: content as data, fewer tools, approved writes and no secrets."
 date: "2026-10-29"
+id: 11
 tags: ["AI agents", "Security", "Tool calling"]
 ---
 

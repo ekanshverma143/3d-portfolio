@@ -2,6 +2,7 @@
 title: "From recorded meeting to client-ready report"
 description: "Recording bots, transcripts, a queue with retry and dedupe, regional failover when the model is throttled, and a PDF a client can trust. Building AI meeting reports."
 date: "2026-11-23"
+id: 36
 tags: ["LLMs", "Node.js", "Product engineering"]
 ---
 

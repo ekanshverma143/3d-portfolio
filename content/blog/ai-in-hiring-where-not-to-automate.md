@@ -2,6 +2,7 @@
 title: "AI in hiring: what I will not let it decide"
 description: "In hiring, a wrong AI answer costs a person, not a page view. Evidence behind every score, hard must-haves, fields never auto-filled and human sign-off gates."
 date: "2026-10-20"
+id: 2
 tags: ["AI agents", "LLMs", "Product engineering"]
 ---
 

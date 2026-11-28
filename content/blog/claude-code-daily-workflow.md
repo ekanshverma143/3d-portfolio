@@ -2,6 +2,7 @@
 title: "The Claude Code workflow I use every day"
 description: "Plan mode, one branch per worktree, subagents for wide searches, skills for repeated work and hooks for rules that must never be skipped."
 date: "2026-11-26"
+id: 38
 tags: ["Developer tools", "AI agents", "LLMs"]
 ---
 

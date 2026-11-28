@@ -2,6 +2,7 @@
 title: "Small models, big models and no model at all"
 description: "Not every request needs the biggest model, or any model. How I route between plain code, a small model with a forced tool call, a large model and a fallback."
 date: "2026-11-07"
+id: 20
 tags: ["LLMs", "Tool calling", "Cost"]
 ---
 

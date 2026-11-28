@@ -2,6 +2,7 @@
 title: "What to log for every agent turn"
 description: "When an agent does something odd, you need the turn, not a guess. What I log for every LLM agent turn, how to keep it private, and the questions it answers."
 date: "2026-10-26"
+id: 8
 tags: ["Observability", "AI agents", "Security"]
 ---
 

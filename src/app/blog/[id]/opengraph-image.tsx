@@ -1,21 +1,22 @@
 import { ImageResponse } from "next/og";
 import { ogSize } from "@/components/og";
-import { formatDate, getAllPosts } from "@/lib/blog";
+import { formatDate, getAllPosts, getPostById } from "@/lib/blog";
 import { coverSvg } from "@/lib/cover";
+import { logoDataUri } from "@/content/logo";
 
 export const alt = "Blog post by Ekansh Verma";
 export const size = ogSize;
 export const contentType = "image/png";
 
 export function generateStaticParams() {
-  return getAllPosts().map((p) => ({ slug: p.slug }));
+  return getAllPosts().map((p) => ({ id: String(p.id) }));
 }
 
-export default async function Image({ params }: { params: Promise<{ slug: string }> }) {
-  const { slug } = await params;
-  const post = getAllPosts().find((p) => p.slug === slug);
+export default async function Image({ params }: { params: Promise<{ id: string }> }) {
+  const { id } = await params;
+  const post = getPostById(id);
   const title = post?.title ?? "Writing";
-  const cover = `data:image/svg+xml;base64,${Buffer.from(coverSvg(slug, post?.tags ?? [])).toString("base64")}`;
+  const cover = `data:image/svg+xml;base64,${Buffer.from(coverSvg(post?.slug ?? id, post?.tags ?? [])).toString("base64")}`;
 
   return new ImageResponse(
     (
@@ -46,7 +47,8 @@ export default async function Image({ params }: { params: Promise<{ slug: string
           }}
         >
           <div style={{ display: "flex", alignItems: "center", gap: 14, fontSize: 24, color: "#8d9099", letterSpacing: 3 }}>
-            <div style={{ width: 14, height: 14, borderRadius: 999, background: "#ffb35c" }} />
+            {/* eslint-disable-next-line @next/next/no-img-element */}
+            <img src={logoDataUri()} width={48} height={48} alt="" />
             EKANSH VERMA · WRITING
           </div>
           <div style={{ display: "flex", fontSize: title.length > 60 ? 54 : 66, lineHeight: 1.08, letterSpacing: -2, maxWidth: 700 }}>

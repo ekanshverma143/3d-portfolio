@@ -356,7 +356,7 @@ export default function HeroScene({ active, animate }: { active: boolean; animat
     <Canvas
       className={`transition-opacity duration-[1600ms] ease-out ${ready ? "opacity-100" : "opacity-0"}`}
       frameloop={active && animate ? "always" : "demand"}
-      dpr={[1, 1.75]}
+      dpr={[1, window.innerWidth < 900 ? 1.5 : 1.75]}
       camera={{ position: [0, 0, 8], fov: 45 }}
       gl={{ antialias: true, alpha: true, powerPreference: "high-performance" }}
       onCreated={() => setReady(true)}

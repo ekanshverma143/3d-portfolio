@@ -2,6 +2,7 @@
 title: "Writing a CLAUDE.md that actually changes behaviour"
 description: "Most CLAUDE.md files are long, vague and ignored. What to put in yours so Claude Code stops repeating the same mistakes in your codebase."
 date: "2026-11-27"
+id: 39
 tags: ["Developer tools", "LLMs", "AI agents"]
 ---
 

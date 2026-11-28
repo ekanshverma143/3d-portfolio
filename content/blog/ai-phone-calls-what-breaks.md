@@ -2,6 +2,7 @@
 title: "What breaks when an AI makes phone calls"
 description: "Answering machines, phones that screen unknown callers, a model wandering between phases and lenient grading. Lessons from production transcripts of AI screening calls."
 date: "2026-10-25"
+id: 7
 tags: ["Realtime voice", "AI agents", "Evals"]
 ---
 

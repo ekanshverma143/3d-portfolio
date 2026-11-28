@@ -2,6 +2,7 @@
 title: "Approval cards are a product, not a checkbox"
 description: "Human-in-the-loop fails when people approve without reading. What goes on an approval card, why it must carry the exact payload, and when a bot may approve."
 date: "2026-11-11"
+id: 24
 tags: ["AI agents", "Product engineering", "Tool calling"]
 ---
 

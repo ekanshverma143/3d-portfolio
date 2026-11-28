@@ -16,7 +16,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     .filter((p) => p.caseStudy)
     .map((p) => ({ url: `${site.url}/projects/${p.slug}`, changeFrequency: "monthly" as const, priority: 0.7 }));
   const articles = posts.map((p) => ({
-    url: `${site.url}/blog/${p.slug}`,
+    url: `${site.url}/blog/${p.id}`,
     lastModified: p.updated ?? p.date,
     changeFrequency: "yearly" as const,
     priority: 0.7,

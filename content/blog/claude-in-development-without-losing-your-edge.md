@@ -2,6 +2,7 @@
 title: "How to use Claude in development without losing your edge"
 description: "Claude can write most of your code. Here is how to use it so you get faster and better as an engineer, instead of slowly forgetting how to do the job."
 date: "2026-11-28"
+id: 40
 tags: ["Developer tools", "LLMs", "Product engineering"]
 ---
 
