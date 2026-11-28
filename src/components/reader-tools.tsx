@@ -1,6 +1,7 @@
 "use client";
 
 import { useCallback, useEffect, useRef, useState } from "react";
+import { sendEvent } from "@/lib/analytics/client";
 
 type Heading = { id: string; text: string };
 const SIZES = ["s", "m", "l"] as const;
@@ -100,6 +101,7 @@ export function ReaderTools({
       saveTimer.current = setTimeout(() => {
         try {
           const prev = JSON.parse(localStorage.getItem(`read:${slug}`) ?? "{}") as { p?: number; done?: boolean };
+          if (!prev.done && p > 0.92) sendEvent({ t: "read", p: window.location.pathname });
           localStorage.setItem(`read:${slug}`, JSON.stringify({ p, done: prev.done || p > 0.92, t: Date.now() }));
         } catch {}
       }, 400);

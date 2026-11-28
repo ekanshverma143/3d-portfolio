@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { nav, site } from "@/content/site";
 import { LogoMark } from "./logo";
 
@@ -10,6 +10,31 @@ export function SiteHeader() {
   const pathname = usePathname();
   const [open, setOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
+  const [burst, setBurst] = useState(0);
+  const lastBurst = useRef(0);
+  const firstPath = useRef(true);
+
+  const trigger = () => {
+    const now = Date.now();
+    if (now - lastBurst.current < 1300) return;
+    lastBurst.current = now;
+    setBurst((b) => b + 1);
+  };
+
+  useEffect(() => {
+    if (firstPath.current) {
+      firstPath.current = false;
+      return;
+    }
+    trigger();
+  }, [pathname]);
+
+  useEffect(() => {
+    const id = window.setInterval(() => {
+      if (document.visibilityState === "visible") trigger();
+    }, 9000);
+    return () => window.clearInterval(id);
+  }, []);
 
   useEffect(() => setOpen(false), [pathname]);
   useEffect(() => {
@@ -39,8 +64,13 @@ export function SiteHeader() {
       }`}
     >
       <div className="mx-auto flex h-16 max-w-6xl items-center justify-between px-5 sm:px-8">
-        <Link href="/" className="group flex items-center gap-2.5 text-sm font-medium tracking-tight">
-          <LogoMark className="size-8 transition-transform duration-300 group-hover:scale-105" />
+        <Link
+          href="/"
+          onPointerEnter={trigger}
+          className="group flex items-center gap-2.5 text-sm font-medium tracking-tight"
+          aria-label={`${site.name}, home`}
+        >
+          <LogoMark className="size-8" animated burst={burst} />
           {site.name}
         </Link>
 
