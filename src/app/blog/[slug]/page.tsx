@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
+import { ShareBar } from "@/components/share-bar";
 import { Arrow, Container, JsonLd, Tag } from "@/components/ui";
 import { personId } from "@/content/person";
 import { site } from "@/content/site";
@@ -24,6 +25,8 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
     alternates: { canonical: `/blog/${slug}` },
     openGraph: {
       type: "article",
+      siteName: site.name,
+      locale: "en_IN",
       title: meta.title,
       description: meta.description,
       url: `/blog/${slug}`,
@@ -41,6 +44,7 @@ export default async function PostPage({ params }: { params: Promise<{ slug: str
   const post = await getPost(slug);
   if (!post) notFound();
   const { meta, html } = post;
+  const postUrl = `${site.url}/blog/${slug}`;
   const all = getAllPosts();
   const others = all.filter((p) => p.slug !== slug).slice(0, 2);
 
@@ -81,10 +85,31 @@ export default async function PostPage({ params }: { params: Promise<{ slug: str
               ))}
             </span>
           </div>
+          <div className="mt-5">
+            <ShareBar url={postUrl} title={meta.title} />
+          </div>
+          <figure className="mt-8 overflow-hidden rounded-2xl border border-line">
+            {/* eslint-disable-next-line @next/next/no-img-element */}
+            <img
+              src={`/blog/${slug}/cover.svg`}
+              alt={`Illustration for ${meta.title}`}
+              width={1200}
+              height={630}
+              className="block h-auto w-full"
+              fetchPriority="high"
+            />
+          </figure>
           <div
             className="prose prose-invert prose-site prose-lg mt-10 max-w-none prose-headings:font-medium prose-p:leading-[1.8]"
             dangerouslySetInnerHTML={{ __html: html }}
           />
+          <div className="mt-14 rounded-2xl border border-line bg-panel p-6 sm:p-7">
+            <p className="text-lg font-medium tracking-tight">Found this useful? Pass it on.</p>
+            <p className="mt-1 text-sm text-muted">Share it with a teammate or a group that would like it.</p>
+            <div className="mt-5">
+              <ShareBar url={postUrl} title={meta.title} />
+            </div>
+          </div>
         </div>
       </Container>
 
@@ -97,10 +122,12 @@ export default async function PostPage({ params }: { params: Promise<{ slug: str
                 <li key={p.slug}>
                   <Link
                     href={`/blog/${p.slug}`}
-                    className="group block h-full rounded-2xl border border-line p-5 transition-colors hover:border-line-strong hover:bg-panel"
+                    className="group block h-full overflow-hidden rounded-2xl border border-line transition-colors hover:border-line-strong hover:bg-panel"
                   >
-                    <span className="font-mono text-[11px] text-faint">{formatDate(p.date)}</span>
-                    <span className="mt-2 block font-medium tracking-tight group-hover:text-signal">{p.title}</span>
+                    {/* eslint-disable-next-line @next/next/no-img-element */}
+                    <img src={`/blog/${p.slug}/cover.svg`} alt="" width={1200} height={630} loading="lazy" className="block h-auto w-full border-b border-line" />
+                    <span className="block px-5 pt-4 font-mono text-[11px] text-faint">{formatDate(p.date)}</span>
+                    <span className="mt-2 block px-5 pb-5 font-medium tracking-tight group-hover:text-signal">{p.title}</span>
                   </Link>
                 </li>
               ))}

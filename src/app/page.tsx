@@ -114,16 +114,18 @@ export default function Home() {
               <li key={post.slug}>
                 <Link
                   href={`/blog/${post.slug}`}
-                  className="group flex h-full flex-col rounded-2xl border border-line p-6 transition-colors hover:border-line-strong hover:bg-panel"
+                  className="group flex h-full flex-col overflow-hidden rounded-2xl border border-line transition-colors hover:border-line-strong hover:bg-panel"
                 >
-                  <span className="font-mono text-[11px] text-faint">
+                  {/* eslint-disable-next-line @next/next/no-img-element */}
+                  <img src={`/blog/${post.slug}/cover.svg`} alt="" width={1200} height={630} loading="lazy" className="block h-auto w-full border-b border-line" />
+                  <span className="px-6 pt-5 font-mono text-[11px] text-faint">
                     {formatDate(post.date)} · {post.readingMinutes} min
                   </span>
-                  <span className="mt-4 text-lg leading-snug font-medium tracking-tight group-hover:text-signal">
+                  <span className="mt-3 px-6 text-lg leading-snug font-medium tracking-tight group-hover:text-signal">
                     {post.title}
                   </span>
-                  <span className="mt-3 text-sm leading-relaxed text-muted">{post.description}</span>
-                  <span className="mt-auto inline-flex items-center gap-2 pt-6 text-sm text-fg">
+                  <span className="mt-3 line-clamp-3 px-6 text-sm leading-relaxed text-muted">{post.description}</span>
+                  <span className="mt-auto inline-flex items-center gap-2 px-6 pt-6 pb-6 text-sm text-fg">
                     Read
                     <Arrow className="transition-transform group-hover:translate-x-0.5" />
                   </span>
